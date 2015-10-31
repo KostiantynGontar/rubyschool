@@ -1,9 +1,8 @@
-print "Press Enter to start the GreanCardLottery game"
+print 'Press Enter to start the GreanCardLottery game'
 gets
 
-print "How many times do you want to try? " 
+print 'How many times do you want to try? '
 tries = gets.to_i
-
 
 your_num = rand(1..50)
 puts "Your number is #{your_num}"
@@ -12,11 +11,9 @@ puts "Your number is #{your_num}"
   num = rand(1..50)
   print "Let's try #{i} time. "
   if num == your_num
-    puts  "Great! You just won!"
+    puts 'Great! You just won!'
     exit
-  else 
+  else
     puts "Sorry, the luccky number was #{num}"
   end
 end
-
-
