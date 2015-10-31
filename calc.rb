@@ -1,27 +1,19 @@
-print "enter first number "
+print 'enter first number '
 a = gets.to_f
 
-print "choose you action (+-*/) "
+print 'choose you action (+-*/) '
 act = gets.strip
 
-print "enter last number "
+print 'enter last number '
 b = gets.to_f
 
-if act == "+"
-  result = a + b
-end
+result = a + b if act == '+'
+result = a - b if act == '-'
+result = a * b if act == '*'
 
-if act == "-"
-  result = a - b
-end
-
-if act == "*"
-  result =  a * b
-end
-
-if act == "/" && b != 0
+if act == '/' && b != 0
   result = a / b
-else 
+else
   puts "You can't devide on 0"
   exit
 end
