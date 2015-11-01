@@ -1,25 +1,26 @@
-@hh = {}
+# class of the notebook
+class Book
+  attr_reader :last_person
 
-def add_person(options)
-  return puts 'Person already exists' if @hh.key? options[:name]
-  @hh[options[:name]] = options[:age]
-end
-
-def show_hash
-  @hh.each { |k, v| puts "Name: #{k}, age: #{v}" }
-end
-
-loop do
-  print 'Enter a name: '
-  name = gets.chomp.capitalize
-
-  if name.empty?
-    show_hash
-    exit
+  def initialize
+    @hh = {}
   end
 
-  print 'Enter an age: '
-  age = gets.chomp.to_i
+  def add_person(options)
+    puts 'Person already exists' if @hh.key? options[:name]
+    @hh[options[:name].capitalize] = options[:age]
+    @last_person = options[:name].capitalize
+  end
 
-  add_person name: name, age: age
+  def show_all
+    @hh.each { |k, v| puts "Name: #{k}, age: #{v}" }
+  end
 end
+
+a = Book.new
+a.add_person name: 'mike', age: 22
+a.add_person name: 'jack', age: 24
+a.add_person name: 'steeve', age: 38
+a.add_person name: 'john', age: 31
+a.show_all
+puts a.last_person
