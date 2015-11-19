@@ -1,6 +1,20 @@
+# Class for artist
+class Artist
+  attr_reader :name, :albums
+
+  def initialize(name)
+    @name = name
+    @albums = []
+  end
+
+  def add_album(album)
+    @albums << album
+  end
+end
+
 # Class for albums
 class Album
-  attr_reader :songs
+  attr_reader :name, :songs
 
   def initialize(name)
     @name = name
@@ -22,16 +36,18 @@ class Song
   end
 end
 
-album = Album.new 'Known west boy'
+artist = Artist.new 'Tricky'
+album1 = Album.new 'Known west boy'
+artist.add_album album1
 song1 = Song.new 'Veronica', 4
 song2 = Song.new 'Bury the evidance', 5
-album.add_song song1
-album.add_song song2
+album1.add_song song1
+album1.add_song song2
 
-p album
-puts album
+puts artist.name
 puts
-p album.songs
+puts artist.albums[0].name
+puts album1.name
 puts
-puts album.songs[0].name
-puts album.songs[0].duration
+puts album1.songs[0].name
+puts album1.songs[0].duration
